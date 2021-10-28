@@ -33,6 +33,9 @@ class dictFrame(tk.Frame):
     """
 
     def __init__(self, parent, word):
+        """
+        Init method, produces the layout of the frame to be used in the notebook
+        """
         tk.Frame.__init__(self, parent)
         dictOfWorkouts = {"Arms": ["Biceps Curl", "Triceps Extension"],
                           "Chest": ["Bench Press", "Fly"],
@@ -58,4 +61,5 @@ class dictFrame(tk.Frame):
         workouts_CB['values'] = listOfWorkouts
 
     def getPage(self):
+        """ Temporary hardcoded functionality for button, will be replaced"""
         webbrowser.open("https://en.wikipedia.org/wiki/Biceps_curl")
