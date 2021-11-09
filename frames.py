@@ -46,7 +46,9 @@ class dictFrame(tk.Frame):
 
         # Widget management
         workoutsLabel = tk.Label(self, text="Workouts: ")  # Create label
-        workouts_CB = ttk.Combobox(self)
+        workouts_CB = ttk.Combobox(self)        # Create combobox
+
+        # Maps buttons to commands
         wikiButton = tk.Button(self, text="Information from Wikipedia", command=lambda: commands.accessWiki(self, workouts_CB.get()))
         ytButton = tk.Button(self, text="Find Exercise guide on Youtube", command=lambda: commands.accessYoutube(self, workouts_CB.get()))
 
@@ -56,5 +58,5 @@ class dictFrame(tk.Frame):
         wikiButton.grid(row=0, column=2, sticky=tk.E + tk.W)
         ytButton.grid(row=0, column=3, sticky=tk.E + tk.W)
 
-        exercises = tk.StringVar()
+#        exercises = tk.StringVar()
         workouts_CB['values'] = listOfWorkouts
