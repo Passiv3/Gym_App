@@ -3,20 +3,18 @@
 # Description: This is a gym application
 
 from tkinter import *
-from tkinter import ttk
 from frames import *
-import webbrowser
 
 # Main initialization and style configuration
 root = Tk()
 root.title("Gymcyclopedia")
-root.geometry("800x600")
+root.geometry("800x400")
 root.columnconfigure(1, weight=1)
 
 style = ttk.Style()
 style.theme_create("CustomStyle", parent="alt", settings={
     "TNotebook": {"configure": {"tabmargins": [1, 1, 1, 0]}},
-    "TNotebook.Tab": {"configure": {"padding": [10, 10], "sticky": tk.E+tk.W},}
+    "TNotebook.Tab": {"configure": {"padding": [10, 10], "sticky": tk.E+tk.W}}
 })
 style.theme_use("CustomStyle")
 

@@ -4,7 +4,6 @@
 
 import tkinter as tk
 from tkinter import ttk
-import webbrowser
 
 import commands
 
@@ -24,32 +23,33 @@ class homeFrame(tk.Frame):
             "HOW TO USE\n" \
             "------------------------\n"\
             "The tabs at the top are the major body part, once selected, you will be able to select an exercise. " \
-            "Then, you can get both the Wikipedia page if available, and a YouTube video on how to perform the exercise"
+            "Then, you can get both the description from Wikipedia, and a YouTube video on how to perform the exercise"
         textBox.insert(tk.END, About)
+        textBox.configure(state='disabled')
 
 class dictFrame(tk.Frame):
     """
     Frame class for each workout region
     """
-
     def __init__(self, parent, word):
         """
         Init method, produces the layout of the frame to be used in the notebook
         """
         tk.Frame.__init__(self, parent)
         dictOfWorkouts = {"Arms": ["Biceps Curl", "Triceps Extension"],
-                          "Chest": ["Bench Press", "Fly"],
+                          "Chest": ["Bench Press", "Push-up"],
                           "Back": ["Bent-over Row", "Deadlift"],
                           "Legs": ["Calf raises", "Squats", "Hamstring Curl"],
                           "Core": ["Russian Twist"]}
         listOfWorkouts = sorted(dictOfWorkouts[word])  # Assign list
         dictFrame.columnconfigure(self, 3, weight=1)
         dictFrame.columnconfigure(self, 2, weight=1)
+
         # Widget management
         workoutsLabel = tk.Label(self, text="Workouts: ")  # Create label
         workouts_CB = ttk.Combobox(self)
-        wikiButton = tk.Button(self, text="Find Workout on Wikipedia", command=commands.pageFrame)
-        ytButton = tk.Button(self, text="Find Exercise guide on Youtube")
+        wikiButton = tk.Button(self, text="Information from Wikipedia", command=lambda: commands.accessWiki(workouts_CB.get()))
+        ytButton = tk.Button(self, text="Find Exercise guide on Youtube", command=lambda: commands.accessYoutube(workouts_CB.get()))
 
         # Geometry management
         workoutsLabel.grid(row=0, column=0, sticky=tk.E + tk.W)
@@ -59,7 +59,3 @@ class dictFrame(tk.Frame):
 
         exercises = tk.StringVar()
         workouts_CB['values'] = listOfWorkouts
-
-    def getPage(self):
-        """ Temporary hardcoded functionality for button, will be replaced"""
-        webbrowser.open("https://en.wikipedia.org/wiki/Biceps_curl")
