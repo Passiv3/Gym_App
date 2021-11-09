@@ -4,7 +4,6 @@
 
 import tkinter as tk
 from tkinter import ttk
-
 import commands
 
 
@@ -39,7 +38,7 @@ class dictFrame(tk.Frame):
         dictOfWorkouts = {"Arms": ["Biceps Curl", "Triceps Extension"],
                           "Chest": ["Bench Press", "Push-up"],
                           "Back": ["Bent-over Row", "Deadlift"],
-                          "Legs": ["Calf raises", "Squats", "Hamstring Curl"],
+                          "Legs": ["Calf raises", "Squats", "Leg Curl"],
                           "Core": ["Russian Twist"]}
         listOfWorkouts = sorted(dictOfWorkouts[word])  # Assign list
         dictFrame.columnconfigure(self, 3, weight=1)
@@ -48,8 +47,8 @@ class dictFrame(tk.Frame):
         # Widget management
         workoutsLabel = tk.Label(self, text="Workouts: ")  # Create label
         workouts_CB = ttk.Combobox(self)
-        wikiButton = tk.Button(self, text="Information from Wikipedia", command=lambda: commands.accessWiki(workouts_CB.get()))
-        ytButton = tk.Button(self, text="Find Exercise guide on Youtube", command=lambda: commands.accessYoutube(workouts_CB.get()))
+        wikiButton = tk.Button(self, text="Information from Wikipedia", command=lambda: commands.accessWiki(self, workouts_CB.get()))
+        ytButton = tk.Button(self, text="Find Exercise guide on Youtube", command=lambda: commands.accessYoutube(self, workouts_CB.get()))
 
         # Geometry management
         workoutsLabel.grid(row=0, column=0, sticky=tk.E + tk.W)

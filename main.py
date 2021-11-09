@@ -36,6 +36,4 @@ notebook.add(backTab, text="Back")
 notebook.add(legsTab, text="Legs")
 notebook.add(coreTab, text="Core")
 
-
-
 root.mainloop()
