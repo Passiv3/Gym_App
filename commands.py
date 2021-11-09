@@ -4,7 +4,6 @@
 
 import tkinter as tk
 import requests
-from tkinter import ttk
 
 def accessWiki(parent, input):
     """Utilizes Colin's Wikipedia scraper"""
