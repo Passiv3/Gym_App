@@ -32,7 +32,7 @@ class dictFrame(tk.Frame):
     """
     def __init__(self, parent, word):
         """
-        Init method, produces the layout of the frame to be used in the notebook
+        Produces the layout of the frame to be used in the notebook
         """
         tk.Frame.__init__(self, parent)
         dictOfWorkouts = {"Arms": ["Biceps Curl", "Triceps Extension"],
@@ -58,5 +58,4 @@ class dictFrame(tk.Frame):
         wikiButton.grid(row=0, column=2, sticky=tk.E + tk.W)
         ytButton.grid(row=0, column=3, sticky=tk.E + tk.W)
 
-#        exercises = tk.StringVar()
         workouts_CB['values'] = listOfWorkouts
